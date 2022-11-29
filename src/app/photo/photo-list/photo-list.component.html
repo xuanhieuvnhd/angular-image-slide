@@ -1,0 +1,26 @@
+<br>
+<div class="text-center text-uppercase font-weight-bold">
+  <span style="font-size: 24px">Danh sách photo</span>
+</div>
+<router-outlet></router-outlet>
+<div class="mt-lg-4">
+  <a routerLink="/create-photo">Tạo mới photo</a>
+</div>
+<div class="mt-lg-4">
+  <table border="1" class="table table-bordered">
+    <tr>
+      <th>Tiêu đề ảnh</th>
+      <th>Link ảnh</th>
+      <th>Link ảnh nhỏ</th>
+      <th>Sửa</th>
+      <th>Xoá</th>
+    </tr>
+    <tr *ngFor="let photo of photoList">
+      <td><a [routerLink]="['detail-photo', photo.id]">{{photo.title}}</a></td>
+      <td>{{photo.url}}</td>
+      <td>{{photo.thumbnailUrl}}</td>
+      <td><a [routerLink]="['edit-photo',photo.id]">sửa</a></td>
+      <td><a [routerLink]="['delete-photo',photo.id]">xoá</a></td>
+    </tr>
+  </table>
+</div>

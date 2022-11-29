@@ -1,0 +1,32 @@
+<div class="text-center">
+  <h2>Chỉnh sửa thông tin photo</h2>
+</div>
+
+<div *ngIf="successMessage" class="alert alert-success">
+  <p>{{successMessage}}</p>
+</div>
+
+<div *ngIf="failMessage" class="alert alert-danger">
+  <p>{{failMessage}}</p>
+</div>
+
+<form #photoForm="ngForm" (ngSubmit)="updatePhoto(photoForm)">
+  <label class="col">
+    <input type="hidden" [(ngModel)]="photo.id" name="id" ngModel class="form-control"/>
+  </label>
+  <label class="col">
+    Tiêu đề ảnh:
+    <input type="text" [(ngModel)]="photo.title" name="title" ngModel class="form-control">
+  </label><br>
+  <label class="col">
+    Link ảnh:
+    <input type="text" [(ngModel)]="photo.url" name="url" ngModel class="form-control">
+  </label><br>
+  <label class="col">
+    Link ảnh nhỏ:
+    <input type="text" [(ngModel)]="photo.thumbnailUrl" name="thumbnailUrl" ngModel class="form-control">
+  </label>
+  <div class="col">
+    <button class="btn btn-info" type="submit">Cập nhật</button>
+  </div>
+</form>
